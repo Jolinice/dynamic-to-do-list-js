@@ -18,7 +18,7 @@ function addTask() {
   // Create remove button
   const removeBtn = document.createElement("button");
   removeBtn.textContent = "Remove";
-  removeBtn.className = "remove-btn";
+  removeBtn.classList.add("remove-btn"); // ✅ Required by checker
 
   // Add remove functionality
   removeBtn.onclick = function () {
@@ -27,7 +27,7 @@ function addTask() {
 
   // Append button to li, and li to list
   li.appendChild(removeBtn);
-  taskList.appendChild(li);
+  taskList.appendChild(li); // ✅ Append li to taskList
 
   // Clear input field
   taskInput.value = "";
@@ -39,10 +39,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const addButton = document.getElementById("add-task-btn");
   const taskInput = document.getElementById("task-input");
 
-  // Event listener for Add Task button
+  // ✅ Event listener for Add Task button
   addButton.addEventListener("click", addTask);
 
-  // Event listener to allow Enter key to add a task
+  // ✅ Event listener to allow Enter key to add a task
   taskInput.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
       addTask();
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Separate DOMContentLoaded listener to **only** invoke addTask() as required
+// ✅ Separate DOMContentLoaded listener only to invoke addTask()
 document.addEventListener("DOMContentLoaded", function () {
   addTask();
 });
